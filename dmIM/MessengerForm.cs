@@ -98,9 +98,8 @@ namespace dmIM
                     if (sr == null) return;
                     var message = await sr.ReadLineAsync();
 
-                    if (String.IsNullOrEmpty(message))
+                    if (message == null)
                     {
-                        //Task.Run(() => ReceivedMessage(this, "other");
                         return;
                     }
 
@@ -178,17 +177,27 @@ namespace dmIM
             {
                 Log(ex.Message);
             }
+
+            _stopping = false;
         }
 
         private void Disconnect()
         {
             if (IsServer)
             {
-
+                _stopping = true;
+                _listener.Stop();
+                foreach (var client in _clients.Values)
+                {
+                    if (client.Client.Connected)
+                        client.Client.Close();
+                }
             }
             else
             {
                 _client.Close();
+                sw.Dispose();
+                sw = null;
             }
         }
 
@@ -321,11 +330,11 @@ namespace dmIM
                 while (true)
                 {
                     if (_reader == null) return;
-                    var message = await _reader.ReadLineAsync();
 
-                    if (String.IsNullOrEmpty(message))
+                    var message = await _reader.ReadLineAsync();
+                    if (message == null)
                     {
-                        Task.Run(() => _closedCallback(this));
+                        await Task.Run(() => _closedCallback(this));
                         return;
                     }
 
