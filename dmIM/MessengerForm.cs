@@ -276,6 +276,7 @@ namespace dmIM
                     {
                         using (SoundPlayer sp = new SoundPlayer(stream))
                         {
+                            sp.Play();
                         }
                     }
                 }
