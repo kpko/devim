@@ -34,6 +34,10 @@
             this.LogTextBox = new System.Windows.Forms.TextBox();
             this.MessageTextBox = new System.Windows.Forms.TextBox();
             this.EncryptionKeyTextBox = new System.Windows.Forms.TextBox();
+            this.SettingsPanel = new System.Windows.Forms.Panel();
+            this.BeepCheckBox = new System.Windows.Forms.CheckBox();
+            this.FlashCheckBox = new System.Windows.Forms.CheckBox();
+            this.SettingsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // HostTextBox
@@ -87,7 +91,7 @@
             this.LogTextBox.Name = "LogTextBox";
             this.LogTextBox.ReadOnly = true;
             this.LogTextBox.Size = new System.Drawing.Size(446, 256);
-            this.LogTextBox.TabIndex = 3;
+            this.LogTextBox.TabIndex = 5;
             // 
             // MessageTextBox
             // 
@@ -120,7 +124,43 @@
             this.EncryptionKeyTextBox.Name = "EncryptionKeyTextBox";
             this.EncryptionKeyTextBox.PasswordChar = '*';
             this.EncryptionKeyTextBox.Size = new System.Drawing.Size(446, 23);
-            this.EncryptionKeyTextBox.TabIndex = 5;
+            this.EncryptionKeyTextBox.TabIndex = 3;
+            // 
+            // SettingsPanel
+            // 
+            this.SettingsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SettingsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SettingsPanel.Controls.Add(this.FlashCheckBox);
+            this.SettingsPanel.Controls.Add(this.BeepCheckBox);
+            this.SettingsPanel.Location = new System.Drawing.Point(14, 74);
+            this.SettingsPanel.Name = "SettingsPanel";
+            this.SettingsPanel.Size = new System.Drawing.Size(446, 256);
+            this.SettingsPanel.TabIndex = 6;
+            this.SettingsPanel.Visible = false;
+            // 
+            // BeepCheckBox
+            // 
+            this.BeepCheckBox.AutoSize = true;
+            this.BeepCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BeepCheckBox.Location = new System.Drawing.Point(7, 3);
+            this.BeepCheckBox.Name = "BeepCheckBox";
+            this.BeepCheckBox.Size = new System.Drawing.Size(289, 19);
+            this.BeepCheckBox.TabIndex = 0;
+            this.BeepCheckBox.Text = "Beep on new message (when not focused)";
+            this.BeepCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // FlashCheckBox
+            // 
+            this.FlashCheckBox.AutoSize = true;
+            this.FlashCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FlashCheckBox.Location = new System.Drawing.Point(7, 22);
+            this.FlashCheckBox.Name = "FlashCheckBox";
+            this.FlashCheckBox.Size = new System.Drawing.Size(296, 19);
+            this.FlashCheckBox.TabIndex = 0;
+            this.FlashCheckBox.Text = "Flash on new message (when not focused)";
+            this.FlashCheckBox.UseVisualStyleBackColor = true;
             // 
             // MessengerForm
             // 
@@ -128,6 +168,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(474, 422);
+            this.Controls.Add(this.SettingsPanel);
             this.Controls.Add(this.EncryptionKeyTextBox);
             this.Controls.Add(this.MessageTextBox);
             this.Controls.Add(this.LogTextBox);
@@ -140,6 +181,8 @@
             this.Name = "MessengerForm";
             this.Load += new System.EventHandler(this.MessengerForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MessengerForm_KeyDown);
+            this.SettingsPanel.ResumeLayout(false);
+            this.SettingsPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,6 +196,9 @@
         private System.Windows.Forms.TextBox LogTextBox;
         private System.Windows.Forms.TextBox MessageTextBox;
         private System.Windows.Forms.TextBox EncryptionKeyTextBox;
+        private System.Windows.Forms.Panel SettingsPanel;
+        private System.Windows.Forms.CheckBox BeepCheckBox;
+        private System.Windows.Forms.CheckBox FlashCheckBox;
     }
 }
 

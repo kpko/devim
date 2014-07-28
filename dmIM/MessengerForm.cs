@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using dmIM.Win32;
+using System.Media;
+using System.Reflection;
 
 namespace dmIM
 {
@@ -255,11 +258,32 @@ namespace dmIM
                     msg = message;
                 }
                 this.SafeInvoke(form => form.Log(msg, "Other"));
-
+                this.SafeInvoke(form => form.NotifyUser());
             }
             catch (Exception ex)
             {
                 Log(ex.Message);
+            }
+        }
+
+        private void NotifyUser()
+        {
+            if (!ActiveWindow.IsApplicationActive())
+            {
+                if (BeepCheckBox.Checked)
+                {
+                    using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("dmIM.notif.wav"))
+                    {
+                        using (SoundPlayer sp = new SoundPlayer(stream))
+                        {
+                        }
+                    }
+                }
+
+                if (FlashCheckBox.Checked)
+                {
+                    FlashWindow.FlashWindowEx(this);
+                }
             }
         }
 
@@ -281,6 +305,11 @@ namespace dmIM
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
                 this.WindowState = FormWindowState.Minimized;
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            }
+
+            if (e.Control && e.Shift && e.KeyCode == Keys.S)
+            {
+                SettingsPanel.Visible = !SettingsPanel.Visible;
             }
         }
     }
