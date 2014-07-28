@@ -38,16 +38,24 @@
             // 
             // HostTextBox
             // 
-            this.HostTextBox.Location = new System.Drawing.Point(12, 12);
+            this.HostTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.HostTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.HostTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HostTextBox.ForeColor = System.Drawing.Color.Gainsboro;
+            this.HostTextBox.Location = new System.Drawing.Point(14, 14);
             this.HostTextBox.Name = "HostTextBox";
-            this.HostTextBox.Size = new System.Drawing.Size(130, 20);
+            this.HostTextBox.Size = new System.Drawing.Size(279, 23);
             this.HostTextBox.TabIndex = 0;
             // 
             // ConnectButton
             // 
-            this.ConnectButton.Location = new System.Drawing.Point(148, 10);
+            this.ConnectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ConnectButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.ConnectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConnectButton.Location = new System.Drawing.Point(299, 14);
             this.ConnectButton.Name = "ConnectButton";
-            this.ConnectButton.Size = new System.Drawing.Size(75, 23);
+            this.ConnectButton.Size = new System.Drawing.Size(68, 23);
             this.ConnectButton.TabIndex = 1;
             this.ConnectButton.Text = "Connect";
             this.ConnectButton.UseVisualStyleBackColor = true;
@@ -55,9 +63,12 @@
             // 
             // DisconnectButton
             // 
-            this.DisconnectButton.Location = new System.Drawing.Point(229, 10);
+            this.DisconnectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DisconnectButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.DisconnectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DisconnectButton.Location = new System.Drawing.Point(373, 14);
             this.DisconnectButton.Name = "DisconnectButton";
-            this.DisconnectButton.Size = new System.Drawing.Size(75, 23);
+            this.DisconnectButton.Size = new System.Drawing.Size(87, 23);
             this.DisconnectButton.TabIndex = 2;
             this.DisconnectButton.Text = "Disconnect";
             this.DisconnectButton.UseVisualStyleBackColor = true;
@@ -68,47 +79,67 @@
             this.LogTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LogTextBox.Location = new System.Drawing.Point(12, 65);
+            this.LogTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.LogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LogTextBox.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LogTextBox.Location = new System.Drawing.Point(14, 74);
             this.LogTextBox.Multiline = true;
             this.LogTextBox.Name = "LogTextBox";
             this.LogTextBox.ReadOnly = true;
-            this.LogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LogTextBox.Size = new System.Drawing.Size(383, 99);
+            this.LogTextBox.Size = new System.Drawing.Size(446, 256);
             this.LogTextBox.TabIndex = 3;
             // 
             // MessageTextBox
             // 
             this.MessageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.MessageTextBox.AutoCompleteCustomSource.AddRange(new string[] {
+            ":tf:",
+            ":dunno:"});
+            this.MessageTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.MessageTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.MessageTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.MessageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MessageTextBox.Enabled = false;
-            this.MessageTextBox.Location = new System.Drawing.Point(12, 170);
+            this.MessageTextBox.ForeColor = System.Drawing.Color.Gainsboro;
+            this.MessageTextBox.Location = new System.Drawing.Point(14, 337);
+            this.MessageTextBox.Multiline = true;
             this.MessageTextBox.Name = "MessageTextBox";
-            this.MessageTextBox.Size = new System.Drawing.Size(383, 20);
+            this.MessageTextBox.Size = new System.Drawing.Size(446, 74);
             this.MessageTextBox.TabIndex = 4;
             this.MessageTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MessageTextBox_KeyDown);
             // 
             // EncryptionKeyTextBox
             // 
-            this.EncryptionKeyTextBox.Location = new System.Drawing.Point(12, 38);
+            this.EncryptionKeyTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EncryptionKeyTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.EncryptionKeyTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EncryptionKeyTextBox.ForeColor = System.Drawing.Color.Gainsboro;
+            this.EncryptionKeyTextBox.Location = new System.Drawing.Point(14, 44);
             this.EncryptionKeyTextBox.Name = "EncryptionKeyTextBox";
             this.EncryptionKeyTextBox.PasswordChar = '*';
-            this.EncryptionKeyTextBox.Size = new System.Drawing.Size(292, 20);
+            this.EncryptionKeyTextBox.Size = new System.Drawing.Size(446, 23);
             this.EncryptionKeyTextBox.TabIndex = 5;
             // 
             // MessengerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 194);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ClientSize = new System.Drawing.Size(474, 422);
             this.Controls.Add(this.EncryptionKeyTextBox);
             this.Controls.Add(this.MessageTextBox);
             this.Controls.Add(this.LogTextBox);
             this.Controls.Add(this.DisconnectButton);
             this.Controls.Add(this.ConnectButton);
             this.Controls.Add(this.HostTextBox);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Gainsboro;
+            this.KeyPreview = true;
             this.Name = "MessengerForm";
+            this.Load += new System.EventHandler(this.MessengerForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MessengerForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

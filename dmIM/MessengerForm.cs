@@ -5,9 +5,10 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace dmIM
-{    
+{
     public partial class MessengerForm : Form
     {
         private bool IsServer;
@@ -58,7 +59,7 @@ namespace dmIM
 
         private void MessageTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && !e.Shift)
             {
 
                 string actualMessage = MessageTextBox.Text
@@ -70,6 +71,8 @@ namespace dmIM
 
                 string encrypted = StringCipher.Encrypt(actualMessage, Password);
                 SendMessage(encrypted);
+
+                e.SuppressKeyPress = true;
                 MessageTextBox.Clear();
             }
         }
@@ -251,6 +254,26 @@ namespace dmIM
             }
         }
 
+        private void MessengerForm_Load(object sender, EventArgs e)
+        {
+            this.ShowInTaskbar = true;
+        }
+
+        private void MessengerForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Shift && e.KeyCode == Keys.C)
+            {
+                LogTextBox.Clear();
+                HostTextBox.Clear();
+            }
+
+            if (e.Control && e.Shift && e.KeyCode == Keys.D)
+            {
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+                this.WindowState = FormWindowState.Minimized;
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            }
+        }
     }
 
     public class LocalClient : IDisposable
