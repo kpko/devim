@@ -306,12 +306,20 @@ namespace dmIM
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
                 this.WindowState = FormWindowState.Minimized;
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+
+                this.FlashCheckBox.Checked = false;
+                this.BeepCheckBox.Checked = false;
             }
 
             if (e.Control && e.Shift && e.KeyCode == Keys.S)
             {
                 SettingsPanel.Visible = !SettingsPanel.Visible;
             }
+        }
+
+        private void OpacityTrackBar_Scroll(object sender, EventArgs e)
+        {
+            this.Opacity = (OpacityTrackBar.Value / 100d);
         }
     }
 

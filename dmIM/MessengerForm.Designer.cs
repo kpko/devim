@@ -35,9 +35,12 @@
             this.MessageTextBox = new System.Windows.Forms.TextBox();
             this.EncryptionKeyTextBox = new System.Windows.Forms.TextBox();
             this.SettingsPanel = new System.Windows.Forms.Panel();
-            this.BeepCheckBox = new System.Windows.Forms.CheckBox();
             this.FlashCheckBox = new System.Windows.Forms.CheckBox();
+            this.BeepCheckBox = new System.Windows.Forms.CheckBox();
+            this.OpacityTrackBar = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.SettingsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OpacityTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // HostTextBox
@@ -132,6 +135,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SettingsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SettingsPanel.Controls.Add(this.label1);
+            this.SettingsPanel.Controls.Add(this.OpacityTrackBar);
             this.SettingsPanel.Controls.Add(this.FlashCheckBox);
             this.SettingsPanel.Controls.Add(this.BeepCheckBox);
             this.SettingsPanel.Location = new System.Drawing.Point(14, 74);
@@ -139,6 +144,17 @@
             this.SettingsPanel.Size = new System.Drawing.Size(446, 256);
             this.SettingsPanel.TabIndex = 6;
             this.SettingsPanel.Visible = false;
+            // 
+            // FlashCheckBox
+            // 
+            this.FlashCheckBox.AutoSize = true;
+            this.FlashCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FlashCheckBox.Location = new System.Drawing.Point(7, 22);
+            this.FlashCheckBox.Name = "FlashCheckBox";
+            this.FlashCheckBox.Size = new System.Drawing.Size(296, 19);
+            this.FlashCheckBox.TabIndex = 0;
+            this.FlashCheckBox.Text = "Flash on new message (when not focused)";
+            this.FlashCheckBox.UseVisualStyleBackColor = true;
             // 
             // BeepCheckBox
             // 
@@ -151,16 +167,26 @@
             this.BeepCheckBox.Text = "Beep on new message (when not focused)";
             this.BeepCheckBox.UseVisualStyleBackColor = true;
             // 
-            // FlashCheckBox
+            // OpacityTrackBar
             // 
-            this.FlashCheckBox.AutoSize = true;
-            this.FlashCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FlashCheckBox.Location = new System.Drawing.Point(7, 22);
-            this.FlashCheckBox.Name = "FlashCheckBox";
-            this.FlashCheckBox.Size = new System.Drawing.Size(296, 19);
-            this.FlashCheckBox.TabIndex = 0;
-            this.FlashCheckBox.Text = "Flash on new message (when not focused)";
-            this.FlashCheckBox.UseVisualStyleBackColor = true;
+            this.OpacityTrackBar.Location = new System.Drawing.Point(62, 46);
+            this.OpacityTrackBar.Maximum = 100;
+            this.OpacityTrackBar.Minimum = 1;
+            this.OpacityTrackBar.Name = "OpacityTrackBar";
+            this.OpacityTrackBar.Size = new System.Drawing.Size(234, 45);
+            this.OpacityTrackBar.TabIndex = 1;
+            this.OpacityTrackBar.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.OpacityTrackBar.Value = 100;
+            this.OpacityTrackBar.Scroll += new System.EventHandler(this.OpacityTrackBar_Scroll);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Opacity";
             // 
             // MessengerForm
             // 
@@ -183,6 +209,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MessengerForm_KeyDown);
             this.SettingsPanel.ResumeLayout(false);
             this.SettingsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OpacityTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,6 +226,8 @@
         private System.Windows.Forms.Panel SettingsPanel;
         private System.Windows.Forms.CheckBox BeepCheckBox;
         private System.Windows.Forms.CheckBox FlashCheckBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TrackBar OpacityTrackBar;
     }
 }
 
