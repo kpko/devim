@@ -78,6 +78,11 @@ namespace dmIM
                 e.SuppressKeyPress = true;
                 MessageTextBox.Clear();
             }
+
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                MessageTextBox.SelectAll();
+            }
         }
 
         private async void Connect(string host)
